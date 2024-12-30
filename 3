@@ -1,0 +1,41 @@
+#include <stdio.h>
+void maxandmin(int arr[], int n)
+{
+    if (n<2) 
+    {
+        printf("Array should have at least two elements\n");
+    }
+    int max=arr[0],secondmax=arr[0];
+    int min=arr[0],secondmin=arr[0];
+    for(int i=1;i<n;i++) 
+    {
+        if(arr[i]>max)
+        {
+            secondmax=max;
+            max=arr[i];
+        }
+        else if(arr[i]>secondmax&&arr[i]!=max) 
+        {
+            secondmax=arr[i];
+        }
+        if(arr[i]<min) 
+        {
+            secondmin=min;
+            min=arr[i];
+        } 
+        else if(arr[i]<secondmin&&arr[i]!=min)
+        {
+            secondmin=arr[i];
+        }
+    }
+    printf("second largest:%d\n",secondmax);
+    printf("second smallest:%d\n",secondmin);
+}
+
+int main()
+{
+    int arr[]={12,35,1,10,34,1};
+    int n=6;
+    maxandmin(arr,n);
+    return 0;
+}
